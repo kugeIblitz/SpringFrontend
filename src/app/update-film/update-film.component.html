@@ -1,0 +1,48 @@
+<br>
+<div class="container">
+    <div>
+    <h2>Update Film </h2>
+    </div>
+    <form >
+         
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Film</label>
+    <input readonly type="text" [(ngModel)]="currentFilm.idFilm" name="idFilm" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Film</label>
+    <input type="text"[(ngModel)]= "currentFilm.nomFilm"name="nomFilm" class="form-control">
+    </div>
+    <br>
+
+    <div class="col-sm-2 col-md-2 col-lg-6">
+        <label for="exampleFormControlTextarea1">Description Film</label>
+        <textarea class="form-control"  rows="3"  [(ngModel)]= "currentFilm.descFilm" name="descFilm" ></textarea>
+      </div>
+
+      <br>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label for="exampleFormControlTextarea1">Genre de Film</label>
+        <select class="form-control form-control-lg" id="idG" name="idG"
+        [(ngModel)]="updatedCatId">
+        <option *ngFor="let cat of categories" [value]="cat.idCat" >
+        {{cat.nomCat}}
+        </option>
+        </select>
+        </div>
+
+
+<br>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+
+        <label >Date création</label>
+<input type="date" [ngModel]="currentFilm.dateCreation | date: 'yyyy-MM-dd'"
+(ngModelChange)=" currentFilm.dateCreation= $event" name="dateCreation"
+ class="form-control">
+</div>
+<div class="mt-2">
+<button type="submit" (click)="updateFilm()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>
